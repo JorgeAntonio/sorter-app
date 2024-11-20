@@ -5,7 +5,7 @@ import { CalendarClock, Edit2, Link2 } from 'lucide-react'
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardTitle } from "@/components/ui/card"
 
 export const ResumeTicket = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -35,15 +35,15 @@ export const ResumeTicket = () => {
   }, [])
 
   return (
-    <div className="max-w-2xl mx-auto p-4 space-y-6 bg-white shadow-md rounded-lg">
+    <Card className="max-w-2xl mx-auto p-4 space-y-6 bg-white rounded-lg border-2">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
+        <CardTitle className="flex items-center gap-4">
           <h1 className="text-2xl font-bold">332</h1>
-          <div className="flex items-center text-muted-foreground">
+          <div className="flex items-center text-muted-foreground text-sm">
             <CalendarClock className="w-4 h-4 mr-2" />
             28/11/2024, 2:50:00 p.m.
           </div>
-        </div>
+        </CardTitle>
         <Button variant="ghost" size="icon">
           <Edit2 className="w-4 h-4" />
         </Button>
@@ -88,6 +88,6 @@ export const ResumeTicket = () => {
           </Card>
         ))}
       </div>
-    </div>
+    </Card>
   )
 }

@@ -17,6 +17,16 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { CalendarIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { format } from "date-fns"; // Necesario para formatear la fecha
+
 const formSchema = z.object({
   internName: z.string().nonempty("El nombre interno es obligatorio."),
   publicName: z.string().nonempty("El nombre público es obligatorio."),
@@ -24,6 +34,8 @@ const formSchema = z.object({
   url: z.string().min(1, "La URL no puede estar vacía."),
   priceTicket: z.number().min(1, "El precio debe ser mayor a 0."),
   quatity: z.number().min(1, "La cantidad debe ser mayor a 0."),
+  date: z.date().refine((val) => val instanceof Date && !isNaN(val.getTime()), "La fecha del sorteo es obligatoria."),
+  time: z.string().regex(/^([01]?[0-9]|2[0-3]):([0-5][0-9])$/, "El formato de hora debe ser HH:MM."),
 });
 
 export default function CreateSorter() {
@@ -36,6 +48,7 @@ export default function CreateSorter() {
       url: "",
       priceTicket: 0,
       quatity: 0,
+      date: new Date(), // Establecer valor inicial para la fecha
     },
   });
 
@@ -140,6 +153,61 @@ export default function CreateSorter() {
           )}
         />
 
+        <div className="flex items-center gap-4">
+          <FormField
+            control={form.control}
+            name="date"
+            render={({ field }) => (
+              <FormItem className="flex flex-col gap-2">
+                <FormLabel>Dia del sorteo</FormLabel>
+                <FormControl>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant={"outline"}
+                        className={cn(
+                          "w-[280px] justify-start text-left font-normal",
+                          !field.value && "text-muted-foreground"
+                        )}
+                      >
+                        <CalendarIcon />
+                        {field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0">
+                      <Calendar
+                        mode="single"
+                        selected={field.value}
+                        onSelect={field.onChange}
+                        initialFocus
+                      />
+                    </PopoverContent>
+                  </Popover>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="time"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Hora </FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="00:00"
+                    type="time"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <FormField
             control={form.control}
@@ -178,14 +246,10 @@ export default function CreateSorter() {
           />
         </div>
 
-        <Button
-          type="submit"
-          className="w-full"
-        >
+        <Button type="submit" className="w-full">
           Enviar
         </Button>
       </form>
     </Form>
   );
 }
-

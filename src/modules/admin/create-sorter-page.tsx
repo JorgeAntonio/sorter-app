@@ -4,7 +4,7 @@ import { PrizesForm } from "./components/prizes-form";
 import CreateSorter from "./components/new-sorter";
 import PrizesList from "./components/prizes-list";
 import { ResumeTicket } from "./components/resume-ticket";
-import SorterList from "./components/sorter-list";
+// import SorterList from "./components/sorter-list";
 
 export default function NewSorterPage() {
 
@@ -45,10 +45,10 @@ export default function NewSorterPage() {
                 </div>
               </section>
             </div>
-            <div className="flex space-x-8">
+            {/* <div className="flex space-x-8">
               <CreateSorter />
               <SorterList />
-            </div>
+            </div> */}
 
           </TabsContent>
         </Tabs>
