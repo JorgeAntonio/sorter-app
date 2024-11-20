@@ -5,7 +5,7 @@ import { app_name } from './lib/constants';
 
 // 1. Specify protected and public routes
 const protectedRoutes = ['/admin']; // Las subrutas también serán protegidas automáticamente
-const publicRoutes = ['/sign-in', '/signup', '/'];
+const publicRoutes = ['/sign-in', '/signup'];
 
 export default async function middleware(req: NextRequest) {
   // 2. Check the current route
