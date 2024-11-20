@@ -1,3 +1,5 @@
+'use client'
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { TableDemo } from "./components/sorter-table";
 import { PrizesForm } from "./components/prizes-form";
