@@ -13,7 +13,6 @@ export async function getPrizes(filter: IPrizeFilter) {
         path: `${api_url}/${params.toString()}`,
         options: {
             method: 'GET',
-            cache: 'no-store'
         }
     })
     return response

@@ -12,6 +12,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
+  FormDescription,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -73,6 +74,9 @@ export default function CreateSorter() {
                     {...field}
                   />
                 </FormControl>
+                <FormDescription>
+                  Nombre para identificar al sorteo.
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -91,6 +95,9 @@ export default function CreateSorter() {
                     {...field}
                   />
                 </FormControl>
+                <FormDescription>
+                  Titulo para mostrar al público.
+                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
