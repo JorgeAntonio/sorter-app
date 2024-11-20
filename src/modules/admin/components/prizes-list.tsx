@@ -7,7 +7,7 @@ export default async function PrizesList() {
   const onlyShowPrizesWithImage = data.filter(prize => prize.imagen)
 
   return (
-    <main className="flex flex-col gap-4 w-full">
+    <main className="grid grid-cols-2 gap-4 w-full">
         <h2 className="text-2xl font-bold">Lista de premios</h2>
         <div className="flex gap-4">
             {onlyShowPrizesWithImage.map((prize) => (
