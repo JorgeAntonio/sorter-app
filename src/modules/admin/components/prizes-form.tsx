@@ -16,15 +16,11 @@ import {
 import {Input} from "@/components/ui/input"
 import {Textarea} from "@/components/ui/textarea"
 import { prizesApi } from "@/app/api"
-import { Title } from "@/components/main-title"
 
 const formSchema = z.object({
     nombre: z.string().min(3, { message: "El nombre debe tener al menos 3 caracteres." }),
     descripcion: z.string().optional(),
-    imageUrl: z.string().min(3, { message: "Ingrese una URL valido." }).regex(
-        /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)$/,
-        { message: "La URL de la imagen no es válida" }
-    ),
+    imagen: z.string().url({ message: "La URL de la imagen no es válida." }),
 });
 
 export const PrizesForm = () => {
@@ -33,7 +29,7 @@ export const PrizesForm = () => {
         defaultValues: {
             nombre: "",
             descripcion: "",
-            imageUrl: "",
+            imagen: "",
         }
     })
 
@@ -41,12 +37,11 @@ export const PrizesForm = () => {
         try {
             console.log(values);
             const res = await prizesApi.createPrize(values);
+            if (!res.nombre) {
+                throw new Error("Failed to submit the form. Please try again.");
+            }
             console.log(res);
-            toast(
-                <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-                    <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-                </pre>
-            );
+            toast.success("Prize created successfully");
         } catch (error) {
             console.error("Form submission error", error);
             toast.error("Failed to submit the form. Please try again.");
@@ -56,7 +51,7 @@ export const PrizesForm = () => {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 py-10 max-w-md min-w-[400px]">
-            <Title title="Nuevo premio" size="medium"/>
+            <h1 className="text-2xl font-bold">Crear premio</h1>
                 <FormField
                     control={form.control}
                     name="nombre"
@@ -76,7 +71,7 @@ export const PrizesForm = () => {
 
                 <FormField
                     control={form.control}
-                    name="imageUrl"
+                    name="imagen"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>URL de la imagen</FormLabel>

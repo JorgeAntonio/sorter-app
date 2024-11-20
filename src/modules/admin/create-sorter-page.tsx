@@ -1,6 +1,3 @@
-'use client'
-
-import { Title } from "@/components/main-title";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { TableDemo } from "./components/sorter-table";
 import { PrizesForm } from "./components/prizes-form";
@@ -10,8 +7,8 @@ import PrizesList from "./components/prizes-list";
 export default function NewSorterPage() {
 
   return (
-    <main className="container mx-auto py-4 space-y-8">
-      <Title title="Administrar Sorteo" />
+    <main className="container mx-auto py-4 space-y-6">
+      <h1 className="text-3xl font-bold">Administrar sorteos</h1>
       <section>
         <Tabs defaultValue="prizes" className="w-full">
           <TabsList>

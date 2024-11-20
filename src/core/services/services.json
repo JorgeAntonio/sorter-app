@@ -1,0 +1,14 @@
+{
+    "authServices": {
+        "login": "/login/",
+        "register": "/register/",
+        "forgotPassword": "/forgot-password",
+        "resetPassword": "/reset-password",
+        "token": "/token/",
+        "tokenRefresh": "/token/refresh",
+        "users": "users"
+    },
+    "appServices": {
+        "premios": "/premios"
+    }
+}

@@ -1,20 +1,19 @@
 import { appServices, ICreatePrize, IPrize, IPrizeFilter } from "@/core";
 import { fetchCore } from "../fetchCore";
 
-const api_url = appServices.prizes
+const api_url = appServices.premios
 
 const params = new URLSearchParams()
 
-export async function getPrizes(filter: IPrizeFilter): Promise<IPrizeFilter> {
+export async function getPrizes(filter: IPrizeFilter) {
 
-    if (filter.nombre) {
-        params.append('nombre', filter.nombre)
-    }
+    if (filter.nombre) params.append('nombre', filter.nombre)
 
-    const response = await fetchCore<IPrizeFilter>({
+    const response = await fetchCore<IPrize[]>({
         path: `${api_url}/${params.toString()}`,
         options: {
             method: 'GET',
+            cache: 'no-store'
         }
     })
     return response
@@ -32,7 +31,7 @@ export async function getPrizeById({ id }: { id: number }) {
 }
 
 
-export async function createPrize(prize: ICreatePrize): Promise<ICreatePrize> {
+export async function createPrize(prize: ICreatePrize) {
     const response = await fetchCore<ICreatePrize>({
         path: `${api_url}/`,
         options: {

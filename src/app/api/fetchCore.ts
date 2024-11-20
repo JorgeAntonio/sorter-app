@@ -12,6 +12,7 @@ interface IProps {
 export async function fetchCore<T>({ path, options }: IProps): Promise<T> {
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
+    'Accept': '*/*',
   };
 
   const newOptions: RequestInit = {

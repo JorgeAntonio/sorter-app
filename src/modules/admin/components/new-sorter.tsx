@@ -20,7 +20,7 @@ const formSchema = z.object({
   internName: z.string().nonempty("El nombre interno es obligatorio."),
   publicName: z.string().nonempty("El nombre público es obligatorio."),
   description: z.string().nonempty("La descripción no puede estar vacía."),
-  url: z.string().url("Debe ser una URL válida."),
+  url: z.string().min(1, "La URL no puede estar vacía."),
   priceTicket: z.number().min(1, "El precio debe ser mayor a 0."),
   quatity: z.number().min(1, "La cantidad debe ser mayor a 0."),
 });
@@ -28,6 +28,14 @@ const formSchema = z.object({
 export default function CreateSorter() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      internName: "",
+      publicName: "",
+      description: "",
+      url: "",
+      priceTicket: 0,
+      quatity: 0,
+    },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {

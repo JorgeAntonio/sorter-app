@@ -10,7 +10,7 @@ export const authServices = {
 export const appServices = {
     users: '/users',
     sorters: '/sorteos',
-    prizes: '/premios',
+    premios: '/premios',
     tickets: '/tickets',
     winners: '/ganadores',
     prizesSorters: '/premio-sorteo',

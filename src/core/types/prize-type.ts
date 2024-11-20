@@ -2,7 +2,7 @@ export interface IPrize {
     id: number;
     nombre: string;
     descripcion?: string 
-    imageUrl: string;
+    imagen: string;
 }
 
 export type ICreatePrize = Omit<IPrize, 'id'>;
