@@ -116,7 +116,6 @@ export default function CreateSorter() {
               <FormControl>
                 <Input
                   placeholder="https://..."
-
                   type="text"
                   {...field} />
               </FormControl>

@@ -10,8 +10,7 @@ export default function NewSorterPage() {
 
   return (
     <main className="container mx-auto py-4 space-y-8">
-      <Title title="Nuevo sorteo" />
-
+      <Title title="Administrar Sorteo" />
       <section>
         <Tabs defaultValue="prizes" className="w-full">
           <TabsList>
