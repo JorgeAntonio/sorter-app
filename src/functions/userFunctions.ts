@@ -1,4 +1,4 @@
-import { IToken } from '@/types'
+import { IToken } from '@/core/types/auth/IAuth'
 import { getCookie } from './actions'
 
 export interface IResCookie {
