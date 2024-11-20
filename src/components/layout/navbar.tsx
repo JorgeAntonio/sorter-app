@@ -1,13 +1,13 @@
-import Link from 'next/link';
+// import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from '../ui/button';
+// import { Button } from '../ui/button';
 import { NavLinks } from './nav-links';
-import { verifySession } from "@/lib/dal"
-import UserNav from './user-nav';
+// import { verifySession } from "@/lib/dal"
+// import UserNav from './user-nav';
 
 export default async function Navbar() {
-  const session = await verifySession()
-  const user = session ? session.isAuth : null
+  // const session = await verifySession()
+  // const user = session ? session.isAuth : null
 
   return (
     <nav className="shadow-sm py-4">
@@ -23,7 +23,7 @@ export default async function Navbar() {
             />
             <NavLinks />
           </div>
-          <div>
+          {/* <div>
             {
               user ? (
                 <UserNav />
@@ -35,7 +35,7 @@ export default async function Navbar() {
                 </Link>
               )
             }
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>
