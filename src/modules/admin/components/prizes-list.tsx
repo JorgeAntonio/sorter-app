@@ -13,15 +13,6 @@ export default async function PrizesList() {
             {onlyShowPrizesWithImage.map((prize) => (
                 <div key={prize.id} className="flex flex-wrap gap-4 items-center">
                   <CardItem prize={prize} />
-                    {/* <img 
-                      src={prize.imagen || '/no-image.png'}
-                      alt={prize.nombre} 
-                      className="w-20 h-20 rounded-lg"
-                    />
-                    <div>
-                        <h3 className="text-lg font-bold">{prize.nombre}</h3>
-                        <p>{prize.descripcion}</p>
-                    </div> */}
                 </div>
             ))}
         </div>

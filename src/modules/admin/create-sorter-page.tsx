@@ -3,6 +3,7 @@ import { TableDemo } from "./components/sorter-table";
 import { PrizesForm } from "./components/prizes-form";
 import CreateSorter from "./components/new-sorter";
 import PrizesList from "./components/prizes-list";
+import SorterList from "./components/sorter-list";
 
 export default function NewSorterPage() {
 
@@ -28,7 +29,7 @@ export default function NewSorterPage() {
           <TabsContent value="sorters" className="w-full">
             <div className="flex space-x-8">
               <CreateSorter />
-              <PrizesList />
+              <SorterList />
             </div>
           </TabsContent>
         </Tabs>
