@@ -1,6 +1,6 @@
 export interface ISorter {
     id: number;
-    limitTickets: number;
+    limiteTickets: number;
     nombre: string;
     nombrePublico: string;
     descripcion: string;

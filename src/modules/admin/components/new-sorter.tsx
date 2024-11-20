@@ -16,7 +16,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-
 import { Calendar } from "@/components/ui/calendar";
 import {
   Popover,
@@ -25,16 +24,18 @@ import {
 } from "@/components/ui/popover";
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { format } from "date-fns"; // Necesario para formatear la fecha
+import { format } from "date-fns";
+import { sortersApi } from "@/app/api";
+import { ICreateSorter } from "@/core";
 
 const formSchema = z.object({
-  internName: z.string().nonempty("El nombre interno es obligatorio."),
-  publicName: z.string().nonempty("El nombre público es obligatorio."),
-  description: z.string().nonempty("La descripción no puede estar vacía."),
+  internName: z.string().min(1, "El nombre interno es obligatorio."),
+  publicName: z.string().min(1, "El nombre público es obligatorio."),
+  description: z.string().min(1, "La descripción es obligatoria."),
   url: z.string().min(1, "La URL no puede estar vacía."),
-  priceTicket: z.number().min(1, "El precio debe ser mayor a 0."),
-  quatity: z.number().min(1, "La cantidad debe ser mayor a 0."),
-  date: z.date().refine((val) => val instanceof Date && !isNaN(val.getTime()), "La fecha del sorteo es obligatoria."),
+  priceTicket: z.coerce.number().min(1, "El precio debe ser mayor a 0."),
+  quatity: z.coerce.number().min(1, "La cantidad debe ser mayor a 0."),
+  date: z.date().refine((date) => date > new Date(), "La fecha debe ser mayor a la actual."),
   time: z.string().regex(/^([01]?[0-9]|2[0-3]):([0-5][0-9])$/, "El formato de hora debe ser HH:MM."),
 });
 
@@ -48,18 +49,31 @@ export default function CreateSorter() {
       url: "",
       priceTicket: 0,
       quatity: 0,
-      date: new Date(), // Establecer valor inicial para la fecha
+      date: new Date(),
+      time: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+
     try {
-      console.log(values);
-      toast(
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      );
+      const dateTimeString = `${values.date.toISOString().split("T")[0]}T${values.time}:00`; // Formato ISO 8601
+      const newData: ICreateSorter = {
+        nombre: values.internName,
+        nombrePublico: values.publicName,
+        descripcion: values.description,
+        imagen: values.url,
+        precioTickets: Number(values.priceTicket),
+        limiteTickets: Number(values.quatity),
+        fechaSorteo: dateTimeString,
+        usuario: Number(1),
+      }
+
+      const res = await sortersApi.createSorter(newData);
+      if (!res) {
+        throw new Error("Failed to submit the form. Please try again.");
+      }
+      toast.success("Sorteo creado exitosamente");
     } catch (error) {
       console.error("Form submission error", error);
       toast.error("Failed to submit the form. Please try again.");
