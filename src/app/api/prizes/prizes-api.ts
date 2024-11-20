@@ -1,3 +1,5 @@
+'use server'
+
 import { appServices, ICreatePrize, IPrize, IPrizeFilter } from "@/core";
 import { fetchCore } from "../fetchCore";
 
@@ -36,8 +38,10 @@ export async function createPrize(prize: ICreatePrize) {
         options: {
             method: 'POST',
             body: JSON.stringify(prize)
-        }
+        },
     })
+
+    console.log('response', response)
 
     return response
 }

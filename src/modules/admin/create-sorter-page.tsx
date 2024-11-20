@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { TableDemo } from "./components/sorter-table";
@@ -6,7 +6,6 @@ import { PrizesForm } from "./components/prizes-form";
 import CreateSorter from "./components/new-sorter";
 import PrizesList from "./components/prizes-list";
 import { ResumeTicket } from "./components/resume-ticket";
-import SorterList from "./components/sorter-list";
 
 export default function NewSorterPage() {
 
@@ -38,20 +37,15 @@ export default function NewSorterPage() {
               <section className="border-r-2 p-4 h-full">
                 <CreateSorter />
               </section>
-              <section className="p-4">
-                <div>
-                  <PrizesList />
-                </div>
+              <section className="p-4 space-y-4">
                 <div>
                   <ResumeTicket />
                 </div>
+                <div>
+                  <PrizesList />
+                </div>
               </section>
             </div>
-            <div className="flex space-x-8">
-              <CreateSorter />
-              <SorterList />
-            </div>
-
           </TabsContent>
         </Tabs>
       </section>

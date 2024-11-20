@@ -1,3 +1,5 @@
+'use server'
+
 const isProduction = process.env.NODE_ENV === 'production';
 const productionUrl = process.env.API_URL_PROD;
 const developmentUrl = process.env.API_URL_DEV;
@@ -7,13 +9,21 @@ const baseUrl = isProduction ? productionUrl : developmentUrl;
 interface IProps {
   path: string;
   options?: RequestInit;
+  auth?: { token: string };
 }
 
-export async function fetchCore<T>({ path, options }: IProps): Promise<T> {
+export async function fetchCore<T>({ path, options, auth }: IProps): Promise<T> {
+
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     'Accept': '*/*',
   };
+
+   // Agregar el token de autenticación si está presente
+   if (auth?.token) {
+    headers['Authorization'] = `Bearer ${auth.token}`;
+  }
+
 
   const newOptions: RequestInit = {
     ...options,

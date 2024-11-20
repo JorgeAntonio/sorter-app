@@ -37,10 +37,10 @@ export const PrizesForm = () => {
         try {
             console.log(values);
             const res = await prizesApi.createPrize(values);
-            if (!res.nombre) {
+            console.log('res', res)
+            if (!res) {
                 throw new Error("Failed to submit the form. Please try again.");
             }
-            console.log(res);
             toast.success("Prize created successfully");
         } catch (error) {
             console.error("Form submission error", error);

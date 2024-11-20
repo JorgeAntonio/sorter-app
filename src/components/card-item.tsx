@@ -18,7 +18,7 @@ export default function CardItem(props: IProps) {
     <Card className="w-[450px] h-[100px] bg-white hover:shadow-md hover:bg-gray-100">
       <CardContent className="flex items-center gap-4 p-4">
         <div className="relative h-16 w-16 overflow-hidden rounded-lg">
-           <img src={imagen || '/no-image.png'} alt={nombre} />
+           <img src={imagen || 'https://img.freepik.com/foto-gratis/champinones-salteados-calabaza-pimiento-dulce_2829-10315.jpg?t=st=1732124225~exp=1732127825~hmac=fb0305edcf439f4fec4cda2251c4b9dee7afb4e5b5458e9302c3c8a754bab8d2&w=1380'} alt={nombre} />
         </div>
         <div className="flex-1 space-y-1">
           <h3 className="font-medium text-gray-900">{nombre}</h3>
