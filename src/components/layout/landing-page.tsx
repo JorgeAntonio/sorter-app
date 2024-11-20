@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Users, DollarSign } from "lucide-react";
 import Image from "next/image";
 import { Card, CardContent } from "../ui/card";
+import Link from "next/link";
 
 export default function LandingPage() {
   return (
@@ -21,12 +22,17 @@ export default function LandingPage() {
             <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
               ¡Organiza tu Sorteo Navideño!
             </h1>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 pb-4">
               Programa tu intercambio con anticipación y permite que todos se preparen.
             </p>
-            <Button size="lg" className="gap-2 mx-auto md:mx-0">
-              Crear nuevo sorteo
-            </Button>
+            <Link
+              href="/admin"
+              passHref
+            >
+              <Button size="lg" className="gap-2 mx-auto md:mx-0">
+                Crear nuevo sorteo
+              </Button>
+            </Link>
           </section>
           {/* Imagen */}
           <section className="relative">
