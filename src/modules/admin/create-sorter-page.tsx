@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { TableDemo } from "./components/sorter-table";
 import { PrizesForm } from "./components/prizes-form";
 import CreateSorter from "./components/new-sorter";
+import PrizesList from "./components/prizes-list";
 
 export default function NewSorterPage() {
 
@@ -18,14 +19,20 @@ export default function NewSorterPage() {
             <TabsTrigger value="tickets">Tickets</TabsTrigger>
             <TabsTrigger value="sorters">Sorteo</TabsTrigger>
           </TabsList>
-          <TabsContent value="prizes" className="w-full">
-            <PrizesForm />
+          <TabsContent value="prizes" className="container mx-auto">
+            <div className="flex space-x-8">
+              <PrizesForm />
+              <PrizesList />
+            </div>
           </TabsContent>
           <TabsContent value="tickets">
             <TableDemo />
           </TabsContent>
           <TabsContent value="sorters" className="w-full">
-            <CreateSorter />
+            <div className="flex space-x-8">
+              <CreateSorter />
+              <PrizesList />
+            </div>
           </TabsContent>
         </Tabs>
       </section>
