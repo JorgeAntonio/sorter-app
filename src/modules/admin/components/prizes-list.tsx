@@ -7,21 +7,12 @@ export default async function PrizesList() {
   const onlyShowPrizesWithImage = data.filter(prize => prize.imagen)
 
   return (
-    <main className="w-full">
+    <main className="flex flex-col gap-4 w-full">
         <h2 className="text-2xl font-bold">Lista de premios</h2>
-        <div className="flex flex-col space-y-4">
+        <div className="flex gap-4">
             {onlyShowPrizesWithImage.map((prize) => (
-                <div key={prize.id} className="flex flex-wrap gap-4 items-center">
+                <div key={prize.id}>
                   <CardItem prize={prize} />
-                    {/* <img 
-                      src={prize.imagen || '/no-image.png'}
-                      alt={prize.nombre} 
-                      className="w-20 h-20 rounded-lg"
-                    />
-                    <div>
-                        <h3 className="text-lg font-bold">{prize.nombre}</h3>
-                        <p>{prize.descripcion}</p>
-                    </div> */}
                 </div>
             ))}
         </div>

@@ -50,7 +50,7 @@ export const PrizesForm = () => {
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 py-10 max-w-md min-w-[400px]">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4  max-w-md min-w-[400px]">
             <h1 className="text-2xl font-bold">Crear premio</h1>
                 <FormField
                     control={form.control}

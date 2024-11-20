@@ -54,6 +54,7 @@ export default function CreateSorter() {
 
   return (
     <Form {...form}>
+      <h1 className="text-2xl font-bold">Crear sorteo</h1>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-6 py-6 max-w-3xl mx-auto min-w-[500px]"
