@@ -6,6 +6,7 @@ import { PrizesForm } from "./components/prizes-form";
 import CreateSorter from "./components/new-sorter";
 import PrizesList from "./components/prizes-list";
 import { ResumeTicket } from "./components/resume-ticket";
+// import SorterList from "./components/sorter-list";
 
 export default function NewSorterPage() {
 
