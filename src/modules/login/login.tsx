@@ -1,23 +1,22 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { LogIn } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
 export const Login = () => {
     return (
         <div className="flex min-h-screen bg-white">
-            <div className="absolute top-16 left-64 z-10">
+            {/* <div className="absolute top-16 left-64 z-10">
                 <Button variant={"outline"}>
                     <LogIn/>
                     Iniciar Sesión
                 </Button>
-            </div>
+            </div> */}
             <div className="flex flex-col justify-center p-8 md:w-1/2">
                 <div className="mx-auto w-full max-w-md">
-                    <h2 className="text-3xl font-bold">Crea tu cuenta</h2>
+                    <h2 className="text-3xl font-bold">Iniciar sesión</h2>
                     <p className="mt-2 text-sm text-gray-600">
-                        Ingresat tu correo electronico para crear tu cuenta
+                        Ingresat tu correo y contraseña para acceder a tu cuenta.
                     </p>
                     <form className="mt-4 space-y-4">
                         <Input
@@ -25,8 +24,11 @@ export const Login = () => {
                             placeholder="correo@example.com"
                             type="text"
                         />
-                        <Button className="w-full bg-red-600 hover:bg-red-700" type="submit">
-                            Crear cuenta
+                        <Button 
+                            className="w-full bg-red-600 hover:bg-red-700" 
+                            type="submit"
+                        >
+                            Iniciar Sesión
                         </Button>
                     </form>
                     <div className="relative mt-6">
@@ -34,7 +36,7 @@ export const Login = () => {
                             <div className="w-full border-t border-gray-300" />
                         </div>
                         <div className="relative flex justify-center text-sm">
-                            <span className="bg-white px-2 text-gray-500">OR CONTINUE WITH</span>
+                            <span className="bg-white px-2 text-gray-500">OR CONTINUAR CON</span>
                         </div>
                     </div>
                     <Button className="mt-6 w-full" variant="outline">
@@ -60,13 +62,13 @@ export const Login = () => {
                         Google
                     </Button>
                     <p className="mt-6 text-xs text-center text-gray-600">
-                        By clicking continue, you agree to our{" "}
+                        Al continuar, aceptas nuestros{" "}
                         <Link href="#" className="text-blue-600 hover:underline">
-                            Terms of Service
+                            Terminos de Servicio
                         </Link>{" "}
-                        and{" "}
+                        y {" "}
                         <Link href="#" className="text-blue-600 hover:underline">
-                            Privacy Policy
+                            Política de Privacidad
                         </Link>
                         .
                     </p>
