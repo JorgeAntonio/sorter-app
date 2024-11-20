@@ -3,7 +3,7 @@
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { IPrize } from "@/core"
-import { Button } from "./ui/button"
+import { DeleteIcon, Edit } from "lucide-react"
 
 interface IProps {
   prize: IPrize
@@ -15,25 +15,19 @@ export default function CardItem(props: IProps) {
   return (
     <Card className={"w-[380px]"}>
       <CardHeader>
-        <CardTitle>Notifications</CardTitle>
-        <CardDescription>You have 3 unread messages.</CardDescription>
+        <img src={imagen || '/no-image.png'} alt={nombre} />
       </CardHeader>
-      <CardContent className="grid gap-4">
-        <div className=" flex items-center space-x-4 rounded-md border p-4">
-          <div className="flex-1 space-y-1">
-            <p className="text-sm font-medium leading-none">
-              Push Notifications
-            </p>
-            <p className="text-sm text-muted-foreground">
-              Send notifications to device.
-            </p>
-          </div>
+      <CardFooter className="flex items-center justify-between">
+        <div className="space-y-2">
+          <CardTitle className="flex items-center justify-between">
+            {nombre}
+          </CardTitle>
+          <CardDescription>{descripcion}</CardDescription>
         </div>
-      </CardContent>
-      <CardFooter>
-        <Button className="w-full">
-          asdad
-        </Button>
+        <div className="flex gap-1">
+          <Edit size={24} />
+          <DeleteIcon size={24} />
+        </div>
       </CardFooter>
     </Card>
   )
