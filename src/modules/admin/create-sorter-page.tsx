@@ -1,14 +1,16 @@
-// 'use client'
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { TableDemo } from "./components/sorter-table";
 import { PrizesForm } from "./components/prizes-form";
 import CreateSorter from "./components/new-sorter";
 import PrizesList from "./components/prizes-list";
-import { ResumeTicket } from "./components/resume-ticket";
-// import SorterList from "./components/sorter-list";
+import { sortersApi } from "@/app/api";
+import SorterList from "./components/sorter-list";
 
-export default function NewSorterPage() {
+export default async function NewSorterPage() {
+
+  const data = await sortersApi.getSorters({})
+
+  console.log('data', data)
 
   return (
     <main className="container mx-auto py-4 space-y-6">
@@ -39,8 +41,7 @@ export default function NewSorterPage() {
                 <CreateSorter />
               </section>
               <section className="p-4 space-y-4">
-                  <ResumeTicket />
-                  <PrizesList />
+                <SorterList />
               </section>
             </div>
           </TabsContent>
