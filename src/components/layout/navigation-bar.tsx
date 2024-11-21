@@ -1,7 +1,8 @@
 'use client'
 
 import { Button } from "../ui/button"
-import { Gift, Ticket, LucideProps, View, RulerIcon } from "lucide-react"
+// import { Gift, Ticket, LucideProps, View, RulerIcon } from "lucide-react"
+import { Gift, LucideProps, View } from "lucide-react"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
@@ -24,23 +25,23 @@ const links: ILink[] = [
         url: '/admin/premios'
 
     },
-    {
-        label: 'Tickets',
-        icon: Ticket,
-        url: '/admin/tickets'
-    },
-    {
-        label: 'Sortoes',
-        icon: RulerIcon,
-        url: '/admin/sorteos'
-    }
+    // {
+    //     label: 'Tickets',
+    //     icon: Ticket,
+    //     url: '/admin/tickets'
+    // },
+    // {
+    //     label: 'Sortoes',
+    //     icon: RulerIcon,
+    //     url: '/admin/sorteos'
+    // }
 ]
 
 export function NavigationBar() {
     const pathname = usePathname()
 
     return (
-        <div className="flex items-center justify-between border-b pb-2">
+        <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
                 {
                     links.map((link, index) => (

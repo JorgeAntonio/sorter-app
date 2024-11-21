@@ -1,20 +1,17 @@
 import { sortersApi } from "@/app/api"
-import CreateSorter from "../components/new-sorter";
+import CreateSorterForm from "../components/create-sorter-form";
 import SorterList from "../components/sorter-list";
+import SplitLayout from "@/components/layout/split-layout";
 
 export default async function SorterPage() {
     const data = await sortersApi.getSorters({})
 
     return (
-        <main className="container mx-auto">
-            <div className="flex gap-2">
-                <section className="border-r-2 p-4 h-full">
-                    <CreateSorter />
-                </section>
-                <section className="p-4 space-y-4">
-                    <SorterList sorteos={data} />
-                </section>
-            </div>
-        </main>
+        <>
+            <SplitLayout
+                leftContent={<CreateSorterForm />}
+                rightContent={<SorterList sorteos={data} />}
+            />
+        </>
     )
 }

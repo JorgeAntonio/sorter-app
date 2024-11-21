@@ -8,10 +8,10 @@ export default function layout(
   return (
     <main className="w-full space-y-4">
       <Navbar />
-      <section className="container mx-auto">
+      <section className="container mx-auto flex justify-between border-b">
         <HeaderSection
-          title="Admin"
-          description="Welcome to the admin page."
+          title="Panel de administración"
+          description="Administra tus sorteos, premios y tickets."
         />
         <NavigationBar />
       </section>
