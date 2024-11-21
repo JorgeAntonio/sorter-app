@@ -85,7 +85,6 @@ export const Login = () => {
                             <Link href="#" className="text-blue-600 hover:underline">
                                 Política de Privacidad
                             </Link>
-                            .
                         </p>
                     </div>
                 </div>
