@@ -1,4 +1,4 @@
-import AdminPage from "@/modules/admin/admin-page";
+import AdminPage from "@/modules/admin/pages/admin-page";
 
 export default function page() {
   return (

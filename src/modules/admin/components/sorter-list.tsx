@@ -1,14 +1,14 @@
-import { sortersApi } from "@/app/api"
 import { SorterCard } from "./sorter-card"
+import { ISorter } from "@/core";
 
-export default async function SorterList() {
-  const data = await sortersApi.getSorters({})
-
+export default function SorterList(
+  { sorteos }: { sorteos: ISorter[] }
+) {
   return (
     <main className="w-full">
         <h2 className="text-2xl font-bold">Listado de sorteos creados</h2>
         <div className="flex flex-col gap-4 py-4">
-            {data.map((sorter) => (
+            {sorteos.map((sorter) => (
                 <div key={sorter.id}>
                   <SorterCard sorter={sorter} />
                 </div>
