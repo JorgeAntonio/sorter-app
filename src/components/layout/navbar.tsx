@@ -13,7 +13,7 @@ export default async function Navbar() {
     <nav className="shadow-sm py-4">
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
+          <div className="flex items-center justify-between w-full">
             <Image
               src="/logo-item.svg"
               alt="Logo"
