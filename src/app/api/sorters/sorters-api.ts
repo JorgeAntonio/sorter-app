@@ -13,7 +13,6 @@ export async function getSorters(filter: ISorterFilter) {
         path: `${api_url}/${params.toString()}`,
         options: {
             method: 'GET',
-            cache: 'no-store'
         }
     })
     return response

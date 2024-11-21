@@ -23,7 +23,7 @@ const formSchema = z.object({
     imagen: z.string().url({ message: "La URL de la imagen no es válida." }),
 });
 
-export const PrizesForm = () => {
+export const CreatePrizesForm = () => {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {

@@ -10,7 +10,7 @@ export default function TabsSections() {
         <main className="container mx-auto py-4 space-y-8">
             <div className="flex justify-between items-center">
                 <Title title="Administrar sorteos" />
-                <Link href="/admin/new-sorter">
+                <Link href="/admin/create">
                     <Button>
                         Nuevo sorteo
                     </Button>

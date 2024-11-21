@@ -39,7 +39,7 @@ const formSchema = z.object({
   time: z.string().regex(/^([01]?[0-9]|2[0-3]):([0-5][0-9])$/, "El formato de hora debe ser HH:MM."),
 });
 
-export default function CreateSorter() {
+export default function CreateSorterForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
