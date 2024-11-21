@@ -88,7 +88,7 @@ export const Login = () => {
                         </p>
                     </div>
                 </div>
-                <div className="hidden md:flex md:w-1/2 bg-red-100 items-center justify-center p-12">
+                <div className="hidden md:flex md:w-1/2 bg-gray-100 items-center justify-center p-12">
                     <Image
                         alt="Christmas illustration"
                         className="max-w-full h-auto"
